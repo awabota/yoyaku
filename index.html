@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zoom予約をする</title>
+
+<meta name="description" content="zoom予約をする">
+<meta property="og:title" content="zoom予約をする">
+<meta property="og:description" content="公式LINEへ移動後、ご希望の参加日をご指定ください。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://awabota.github.io/zoom-reserve/">
+<meta property="og:site_name" content="awabota">
+<meta name="twitter:card" content="summary">
+
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.content {
+  padding: 28px 24px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+  color: #111;
+  max-width: 320px;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.guide {
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 18px 16px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.keyword {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  background: #fff3cd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 0 12px;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background: #06C755;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.note {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #666;
+  text-align: center;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.82);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 88%;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+    <div class="title">zoom予約をする</div>
+
+    <div class="guide">
+      <span class="keyword">zoom予約をする</span>
+      公式LINEへ移動後、ご希望の参加日をご指定ください。
+    </div>
+
+    <a href="https://line.me/R/ti/p/@479rnxap" class="btn" id="btn-bottom">
+      公式LINEに登録する
+    </a>
+
+    <div class="note">
+      PCで開いた場合は、送信用メッセージを自動コピーしたうえで
+      LINE公式ページへ移動します。
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const referrer = urlParams.get('ref') || 'direct';
+
+  const gasUrl = "https://script.google.com/macros/s/AKfycbxeLw4JEGQseXcqub9e9yLTkmwkKF_AIoZtopKQQ9IhyFdrteP7kGMRc-P6TtKg7Ocd/exec";
+  const serviceName = "zoom-reserve";
+  const lineOfficialUrl = "https://line.me/R/ti/p/@479rnxap";
+  const lineMessageUrlBase = "https://line.me/R/oaMessage/@479rnxap/?";
+
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  }
+
+  function showToast(text) {
+    const toast = document.getElementById("toast");
+    toast.innerHTML = text;
+    toast.style.display = "block";
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 4000);
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function trackAccess() {
+    const trackUrl = `${gasUrl}?src=${serviceName}&ref=${referrer}`;
+    fetch(trackUrl, {
+      mode: "no-cors",
+      keepalive: true
+    }).catch(() => {});
+  }
+
+  async function trackAndGo(e) {
+    e.preventDefault();
+
+    trackAccess();
+
+    const sendText = `zoom予約をする ${referrer}`;
+    const encodedMessage = encodeURIComponent(sendText);
+
+    if (isMobileDevice()) {
+      const lineLink = `${lineMessageUrlBase}${encodedMessage}`;
+      window.location.href = lineLink;
+      return;
+    }
+
+    const copied = await copyText(sendText);
+
+    if (copied) {
+      showToast("送信用メッセージをコピーしました。<br>LINE追加後、そのまま貼り付けて送信してください。");
+    } else {
+      showToast(`PCでは自動入力に対応しにくいため、LINE追加後に<br>「${sendText}」を送信してください。`);
+    }
+
+    setTimeout(() => {
+      window.location.href = lineOfficialUrl;
+    }, 1200);
+  }
+
+  document.getElementById("btn-bottom").addEventListener("click", trackAndGo);
+</script>
+
+</body>
+</html>
