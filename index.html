@@ -1,104 +1,241 @@
-<div class="line-block">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料｜CredLayer・SuperLayer解説Zoom</title>
 
-  <h2 class="line-title">
-    無料｜CredLayer・SuperLayer解説Zoom
-  </h2>
-
-  <p class="line-desc">
-    45分で、<br>
-    なぜ収入が伸びないのか、<br>
-    見えない原因を整理します。
-  </p>
-
-  <div class="line-flow">
-    <p class="flow-title">登録後の流れ</p>
-
-    <p class="flow-text">
-      この後、公式LINEの登録画面に進みます。<br>
-      登録後、「Zoom希望」と送信してください。
-    </p>
-
-    <div class="flow-box">
-      Zoom希望
-    </div>
-
-    <p class="flow-note">
-      Zoom内で、<br>
-      CredLayer・SuperLayerの内容を解説します。
-    </p>
-  </div>
-
-  <div class="line-cta">
-    <a href="ここにLINEのURL">
-      解説Zoomに参加する
-    </a>
-  </div>
-
-</div>
+<meta name="description" content="無料｜CredLayer・SuperLayer解説Zoom">
+<meta property="og:title" content="無料｜CredLayer・SuperLayer解説Zoom">
+<meta property="og:description" content="公式LINEへ移動後、「Zoom希望」と送信してください。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://awabota.github.io/credlayer-superlayer-zoom/">
+<meta property="og:site_name" content="awabota">
+<meta name="twitter:card" content="summary">
 
 <style>
-.line-block{
-  background:#f7f7f7;
-  padding:24px 18px;
-  border-radius:12px;
-  margin:30px 0;
-  text-align:center;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
 }
 
-.line-title{
-  font-size:18px;
-  font-weight:700;
-  margin-bottom:14px;
+.container {
+  max-width: 420px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
-.line-desc{
-  font-size:14px;
-  line-height:1.8;
-  color:#555;
-  margin-bottom:20px;
+.content {
+  padding: 28px 24px;
 }
 
-.line-flow{
-  background:#efefef;
-  padding:18px;
-  border-radius:10px;
-  margin-bottom:20px;
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+  color: #111;
+  max-width: 320px;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
-.flow-title{
-  font-size:15px;
-  font-weight:700;
-  margin-bottom:10px;
+.text {
+  font-size: 14px;
+  line-height: 2;
+  color: #444;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.flow-text{
-  font-size:13px;
-  line-height:1.7;
-  color:#555;
-  margin-bottom:12px;
+.guide {
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 18px 16px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
-.flow-box{
-  background:#f4e4b5;
-  padding:12px;
-  font-weight:700;
-  border-radius:8px;
-  margin-bottom:10px;
+.guide strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #222;
 }
 
-.flow-note{
-  font-size:13px;
-  color:#555;
+.keyword {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  background: #fff3cd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  line-height: 1.6;
+  text-align: center;
+  margin: 10px 0 12px;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
-.line-cta a{
-  display:block;
-  background:#dd8758;
-  color:#fff !important;
-  text-decoration:none;
-  font-size:16px;
-  font-weight:700;
-  padding:16px;
-  border-radius:10px;
+.btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background: #06C755;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.note {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #666;
+  text-align: center;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.82);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 88%;
+  text-align: center;
+  z-index: 9999;
+  display: none;
 }
 </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+    <div class="title">無料｜CredLayer・SuperLayer解説Zoom</div>
+
+    <div class="text">
+      45分で、<br>
+      なぜ収入が伸びないのか、<br>
+      見えない原因を整理します。
+    </div>
+
+    <div class="guide">
+      <strong>登録後の流れ</strong>
+      この後、公式LINEの登録画面に進みます。<br>
+      登録後、下記の文言を送信してください。
+
+      <span class="keyword">Zoom希望</span>
+
+      Zoom内で、<br>
+      CredLayer・SuperLayerの内容を解説します。
+    </div>
+
+    <a href="https://line.me/R/ti/p/@479rnxap" class="btn" id="btn-bottom">
+      解説Zoomに参加する
+    </a>
+
+    <div class="note">
+      PCで開いた場合は、送信用メッセージを自動コピーしたうえで
+      LINE公式ページへ移動します。
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const referrer = urlParams.get('ref') || 'direct';
+
+  const gasUrl = "https://script.google.com/macros/s/AKfycbxeLw4JEGQseXcqub9e9yLTkmwkKF_AIoZtopKQQ9IhyFdrteP7kGMRc-P6TtKg7Ocd/exec";
+  const serviceName = "credlayer-superlayer-zoom";
+  const lineOfficialUrl = "https://line.me/R/ti/p/@479rnxap";
+  const lineMessageUrlBase = "https://line.me/R/oaMessage/@479rnxap/?";
+
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  }
+
+  function showToast(text) {
+    const toast = document.getElementById("toast");
+    toast.innerHTML = text;
+    toast.style.display = "block";
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 4000);
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function trackAccess() {
+    const trackUrl = `${gasUrl}?src=${serviceName}&ref=${referrer}`;
+    fetch(trackUrl, {
+      mode: "no-cors",
+      keepalive: true
+    }).catch(() => {});
+  }
+
+  async function trackAndGo(e) {
+    e.preventDefault();
+
+    trackAccess();
+
+    const sendText = `Zoom希望 ${referrer}`;
+    const encodedMessage = encodeURIComponent(sendText);
+
+    if (isMobileDevice()) {
+      const lineLink = `${lineMessageUrlBase}${encodedMessage}`;
+      window.location.href = lineLink;
+      return;
+    }
+
+    const copied = await copyText(sendText);
+
+    if (copied) {
+      showToast("送信用メッセージをコピーしました。<br>LINE追加後、そのまま貼り付けて送信してください。");
+    } else {
+      showToast(`PCでは自動入力に対応しにくいため、LINE追加後に<br>「${sendText}」を送信してください。`);
+    }
+
+    setTimeout(() => {
+      window.location.href = lineOfficialUrl;
+    }, 1200);
+  }
+
+  document.getElementById("btn-bottom").addEventListener("click", trackAndGo);
+</script>
+
+</body>
+</html>
